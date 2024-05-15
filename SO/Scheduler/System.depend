@@ -1,0 +1,88 @@
+# depslib dependency file v1.0
+1526998403 source:c:\users\a120147\desktop\system\main.cpp
+	<iostream>
+	"process.h"
+	<time.h>
+	<unistd.h>
+	<stdio.h>
+	<windows.h>
+
+1526998598 c:\users\a120147\desktop\system\process.h
+	<cstdio>
+	<cstdlib>
+	<stdio.h>
+	<iostream>
+	<ctime>
+	<windows.h>
+
+1526997473 source:c:\users\a120147\desktop\system\process.cpp
+
+1527049329 source:c:\users\laris\desktop\system\main.cpp
+	<iostream>
+	"process.h"
+	<time.h>
+	<unistd.h>
+	<stdio.h>
+	<windows.h>
+	<locale.h>
+
+1527050000 c:\users\laris\desktop\system\process.h
+	<cstdio>
+	<cstdlib>
+	<stdio.h>
+	<iostream>
+	<ctime>
+	<windows.h>
+	<locale.h>
+
+1527046911 source:c:\users\laris\desktop\system\process.cpp
+
+1527082879 source:c:\users\laris\desktop\simulador de processos\main.cpp
+	<iostream>
+	"process.h"
+	<time.h>
+	<unistd.h>
+	<stdio.h>
+	<windows.h>
+	<locale.h>
+
+1527083002 c:\users\laris\desktop\simulador de processos\process.h
+	<cstdio>
+	<cstdlib>
+	<stdio.h>
+	<iostream>
+	<ctime>
+	<windows.h>
+	<locale.h>
+
+1527084351 source:c:\users\laris\desktop\simulador de processos\process.cpp
+
+1527074968 c:\users\laris\desktop\simulador de processos\process.cpp
+	<iostream>
+	<cstdio>
+	<cstdlib>
+	<stdio.h>
+	<ctime>
+	<windows.h>
+	<locale.h>
+
+1527082879 source:c:\users\laris\desktop\scheduler\main.cpp
+	<iostream>
+	"process.h"
+	<time.h>
+	<unistd.h>
+	<stdio.h>
+	<windows.h>
+	<locale.h>
+
+1527083002 c:\users\laris\desktop\scheduler\process.h
+	<cstdio>
+	<cstdlib>
+	<stdio.h>
+	<iostream>
+	<ctime>
+	<windows.h>
+	<locale.h>
+
+1527084351 source:c:\users\laris\desktop\scheduler\process.cpp
+

@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1523552383 source:c:\users\laris\desktop\compiladores\compiladorestradutor\main.cpp
+	<cstdio>
+	<cctype>
+	<string>
+	<cstdlib>
+	<iostream>
+

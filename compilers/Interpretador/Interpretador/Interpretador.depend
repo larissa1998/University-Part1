@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1524025894 source:c:\users\laris\desktop\compiladores\interpretador\interpretador\main.cpp
+	"iostream"
+	"cstdlib"
+	"cstdio"
+	"string"
+	<locale.h>
+

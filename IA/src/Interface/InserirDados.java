@@ -1,0 +1,305 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Interface;
+
+import java.awt.Color;
+import javax.swing.JFrame;
+import rbcia.AcessarDados;
+import rbcia.Atributos;
+import rbcia.Base;
+import rbcia.Gerenciar_dados;
+import rbcia.ValorAtributos;
+import rbcia.CalculoSimilaridades;
+
+/**
+ *
+ * @author laris
+ */
+public class InserirDados extends javax.swing.JFrame {
+        Base casos = new Base();
+        AcessarDados acessar = new AcessarDados();
+        Gerenciar_dados dados = new Gerenciar_dados();
+
+    /**
+     * Creates new form InserirDados
+     */
+    public InserirDados() {
+        initComponents();
+        getContentPane().setBackground(Color.WHITE);
+        setLocationRelativeTo( null );
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setResizable(false);
+    
+        int x;
+        int i;
+        
+        acessar.setAtributos("dados/atributos.csv");
+        acessar.setBase("dados/baseIA.csv");
+        acessar.setPesos("dados/peso.csv");
+        
+        dados = acessar.getBaseInteira();
+        x = acessar.getBaseInteira().getAtributos().size();
+        
+        Atributos atr = acessar.getBaseInteira().getAtributos().get(0);
+        
+        for(i = 0; i<atr.getValor().size(); i++){
+            jLabelName.setText(atr.getAtributo());
+            caixaName.addItem(atr.getValor().get(acessar.getAtributo_nome().get(i)));
+        }
+       
+        labelPorcentagem.setText(PorcentBar.getValue()+"%");
+    }
+
+    int x = 0;
+
+    private void gerarDados() {
+        ValorAtributos atrV = null;
+        Atributos atr = null;
+        try {
+            int n = acessar.getBaseInteira().getAtributos().size();
+
+            if (x == 0) {
+                atr = acessar.getBaseInteira().getAtributos().get(0);
+            } else {
+                atr = acessar.getBaseInteira().getAtributos().get(n - x);
+            }
+
+            atrV = new ValorAtributos(atr.getAtributo(), caixaName.getSelectedItem().toString());
+            System.out.println(atrV.toString());
+            casos.getValorAtributos().add(atrV);
+            System.out.println("Adicionado");
+        } catch (Exception e) {
+            System.out.println("Sem nada a colocar!\n" + e);
+        }
+        try {
+        int p = -1, b = -1;
+            int t = atr.getValor().size();
+
+            for (int i = 0; i < atr.getValor().size() - 1; i++) {
+                if (atrV.getValor().equals("Desconhecido")) {
+                    p = -1;
+                }
+                if (atrV.getValor().equals(atr.getValor().get(i + ""))) {
+                    p = i;
+                }
+            }
+      
+            for (int i = 0; i < dados.getBase().size(); i++) {
+                for (int j = 0; j < atr.getValor().size() - 1; j++) {
+                    for (int k = 0; k < dados.getBase().get(i).getValorAtributos().size(); k++) {
+                        ValorAtributos atbb = dados.getBase().get(i).getValorAtributos().get(k);
+                        if (atbb.getValor().equals("Desconhecido")) {
+                            b = -1;
+                        }
+                        if ((atbb.getValor().equals(atr.getValor().get(j + "")))&&atbb.getAtributo().equals(atr.getAtributo())) {
+                            b = j;
+                            atbb.setsimLocal(CalculoSimilaridades.similaridadeLocal(p, b, (t - 2)));
+                            k = dados.getBase().get(i).getValorAtributos().size() + 1;
+                            j = atr.getValor().size();
+                        }
+
+                    }
+
+                }
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        caixaName.removeAllItems();
+        int n = acessar.getBaseInteira().getAtributos().size();
+        Percent.setText((x+1)+"");
+        if (x == n - 1) {
+            System.out.println("Calculo concluído!");
+            CalculoSimilaridades.similaridadeGlobal(dados);
+            dados.sort();
+            for(int i=0; i<dados.getBase().size(); i++){
+                System.out.println(dados.getBase().get(i));
+            }
+            this.dispose();
+            Busca r = new Busca(dados, PorcentBar.getValue(), casos);
+            r.setVisible(true);
+            
+        } else {
+            x++;
+            atr = acessar.getBaseInteira().getAtributos().get(n - x);
+            for (int i = 0; i < atr.getValor().size(); i++) {
+                jLabelName.setText(atr.getAtributo());
+                caixaName.addItem(atr.getValor().get(acessar.getAtributo_nome().get(i)));
+
+            }
+        }
+
+    }
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        caixaName = new javax.swing.JComboBox<>();
+        jLabelName = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        PorcentBar = new javax.swing.JSlider();
+        labelPorcentagem = new javax.swing.JLabel();
+        Percent = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inserir");
+
+        caixaName.setName("ComboBox"); // NOI18N
+        caixaName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caixaNameActionPerformed(evt);
+            }
+        });
+
+        jLabelName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("->");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Inserir Dados para análise");
+
+        jLabel3.setText("Porcentagem:");
+
+        PorcentBar.setMinimum(30);
+        PorcentBar.setValue(80);
+        PorcentBar.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                PorcentBarStateChanged(evt);
+            }
+        });
+
+        Percent.setFont(new java.awt.Font("Tekton Pro", 0, 12)); // NOI18N
+        Percent.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelPorcentagem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(caixaName, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(PorcentBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(291, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(Percent, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel1)
+                .addGap(42, 42, 42)
+                .addComponent(jLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(caixaName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelPorcentagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PorcentBar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(Percent, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void caixaNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaNameActionPerformed
+//
+    }//GEN-LAST:event_caixaNameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        gerarDados();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void PorcentBarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_PorcentBarStateChanged
+        labelPorcentagem.setText(PorcentBar.getValue()+"%");
+    }//GEN-LAST:event_PorcentBarStateChanged
+
+  
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(InserirDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(InserirDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(InserirDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(InserirDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new InserirDados().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Percent;
+    private javax.swing.JSlider PorcentBar;
+    private javax.swing.JComboBox<String> caixaName;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel labelPorcentagem;
+    // End of variables declaration//GEN-END:variables
+}

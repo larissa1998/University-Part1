@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1525259502 source:c:\users\laris\desktop\trabchamsisfinal\main.cpp
+	<iostream>
+	<string>
+	"Modo_Lib/lib.cpp"
+	<locale.h>
+	<dos.h>
+	<windows.h>
+
+1524149769 c:\users\laris\desktop\trabchamsisfinal\modo_lib\lib.cpp
+	<iostream>
+	<string>
+	"../Modo_Nucleo/nucleo.cpp"
+
+1525259202 c:\users\laris\desktop\trabchamsisfinal\modo_nucleo\nucleo.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<cstdlib>
+	<cstdio>
+
