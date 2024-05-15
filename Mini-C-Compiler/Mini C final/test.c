@@ -1,0 +1,11 @@
+double a;
+double b;
+double d;
+double x;
+double c;
+x = 8;
+a = 10;
+a++;
+b = 10;
+d = a+b;
+printf(d);

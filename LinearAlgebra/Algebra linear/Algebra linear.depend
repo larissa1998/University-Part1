@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1526933257 source:c:\users\laris\desktop\algebra linear\main.c
+	"matriz.h"
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<locale.h>
+
+1526932457 c:\users\laris\desktop\algebra linear\matriz.h
+
+1526943174 source:c:\users\laris\desktop\algebra linear\matriz.c
+	<stdio.h>
+	<stdlib.h>
+	"matriz.h"
+	<math.h>
+
