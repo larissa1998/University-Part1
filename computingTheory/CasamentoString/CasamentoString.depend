@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1529694890 source:c:\users\laris\desktop\casamentostring\main.cpp
+	<iostream>
+	<string.h>
+	<windows.h>
+	<locale.h>
+	"casamento.hpp"
+
+1529695006 c:\users\laris\desktop\casamentostring\casamento.hpp
+
+1529694995 source:c:\users\laris\desktop\casamentostring\casamento.cpp
+	<iostream>
+	<string.h>
+	"casamento.hpp"
+

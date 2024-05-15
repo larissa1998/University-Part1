@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PreferenceFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView63"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="invisible"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textView62"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:text="TextView"
+            android:visibility="invisible"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:text="Preferences"
+            android:textAlignment="center"
+            android:textColor="#414141"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView64"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="42dp"
+            android:text="Health Problems"
+            android:textColor="#414141"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="High blood pressure"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Diabetes"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Cholesterol"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Lactose Intolerance"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+        <CheckBox
+            android:id="@+id/checkBox5"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Allergy"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+
+        <TextView
+            android:id="@+id/textView68"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="invisible"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textView65"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="42dp"
+            android:text="Food without"
+            android:textColor="#414141"
+            android:textStyle="bold" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox6"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Carbohydrates"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox7"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Vegetables and Veggies"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox8"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Fruits"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox10"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Meat and Eggs"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+        <CheckBox
+            android:id="@+id/checkBox9"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Milk and Milk products"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox11"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Leguminous and Oilseeds"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox12"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Oil and Fat"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+
+        <CheckBox
+            android:id="@+id/checkBox13"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="35dp"
+            android:text="Sugar and Candies"
+            android:textAlignment="viewEnd"
+            android:textColor="#414141" />
+
+
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="337dp"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="@string/tab_text_1"
+            android:layout_marginStart="35dp"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView69"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="invisible"
+            tools:visibility="invisible" />
+
+
+        <TextView
+            android:id="@+id/textView70"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="invisible"
+            tools:visibility="invisible" />
+
+
+        <TextView
+            android:id="@+id/textView71"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="invisible"
+            tools:visibility="invisible" />
+
+    </LinearLayout>
+</ScrollView>
